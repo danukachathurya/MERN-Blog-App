@@ -1,10 +1,13 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
 
   const [formData, setFormData] = useState({});
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -12,6 +15,9 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // not refresh the form
+    if (!formData.username || !formData.email || !formData.password) {
+      return setErrorMessage("Please fill out all required fields")
+    }
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -19,7 +25,17 @@ export default function SignUp() {
         body: JSON.stringify(formData),
       });
       const data = await res.json();
-    } catch (error) {}
+      if (data.success === false) {
+        return setErrorMessage(data.message);
+      }
+      setLoading(false);
+      if(res.ok) {
+        navigate('/sign-in')
+      }
+    } catch (error) {
+      setErrorMessage(error.message);
+      setLoading(false);
+    }
   };
 
   return (
