@@ -1,6 +1,7 @@
-import { Button, Label, TextInput } from "flowbite-react";
+import { Alert, Button, Label, TextInput } from "flowbite-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import OAuth from "../components/OAuth";
 
 export default function SignUp() {
 
@@ -72,6 +73,7 @@ export default function SignUp() {
             <Button gradientDuoTone='purpleToPink' type='submit'>
               Sign Up
             </Button>
+            <OAuth />
           </form>
           <div className="flex gap-2 text-sm mt-5">
             <span>Already have an account?</span>
@@ -79,6 +81,11 @@ export default function SignUp() {
               Sign In
             </Link>
           </div>
+          {errorMessage && (
+            <Alert className='mt-5' color='failure'>
+              {errorMessage}
+            </Alert>
+          )}
         </div>
       </div>
     </div>

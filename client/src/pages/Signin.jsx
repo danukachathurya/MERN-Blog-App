@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { signInSuccess, signInStart, signInFailure } from "../redux/user/userSlice";
+import OAuth from "../components/OAuth";
 
 export default function SignIn() {
 
@@ -70,6 +71,7 @@ export default function SignIn() {
             <Button gradientDuoTone='purpleToPink' type='submit'>
               Sign In
             </Button>
+            <OAuth />
           </form>
           {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
           <div className="flex gap-2 text-sm mt-5">
