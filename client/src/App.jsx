@@ -1,13 +1,14 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import Signin from './pages/Signin';
-import SignUp from './pages/SignUp';
-import Dashboard from './pages/Dashboard';
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import Signin from "./pages/Signin";
+import SignUp from "./pages/SignUp";
+import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import PrivateRoute from "./components/PrivateRoute";
 
 export default function App() {
   return (
@@ -19,7 +20,9 @@ export default function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/sign-in" element={<Signin />} />
         <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/dashboard" element={<Dashboard />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Routes>
       <Footer />
     </BrowserRouter>
