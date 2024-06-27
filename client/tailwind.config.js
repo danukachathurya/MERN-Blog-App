@@ -11,6 +11,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [flowbite.plugin(),scrollbar,]
+  plugins: [flowbite.plugin(),scrollbar]
 };
 
