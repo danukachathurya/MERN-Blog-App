@@ -13,9 +13,9 @@ export default function FooterCom() {
               className="self-center whitespace-nowrap text-lg sm:text-xl font-semibold dark:text-white"
             >
               <span className="px-2 py-1 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg text-white">
-                Danuka's
+                Home
               </span>
-              Blog
+              Stock
             </Link>
           </div>
           <div className="grid grid-cols-2 gap-8 mt-4 sm:grid-cols-3 sm:gap-6">
@@ -23,13 +23,13 @@ export default function FooterCom() {
               <Footer.Title title="About" />
               <Footer.LinkGroup col>
                 <Footer.Link
-                  href="https://www.100jsprojects.com"
+                  href="https://www.hello.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  100 JS projects
+                  Hello
                 </Footer.Link>
-                <Footer.Link href="/about">Danuka's Blog</Footer.Link>
+                <Footer.Link href="/about">Home Stock</Footer.Link>
               </Footer.LinkGroup>
             </div>
             <div>
