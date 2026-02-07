@@ -72,17 +72,6 @@ export default function DashSidebar() {
             </Sidebar.Item>
           </Link>
           {currentUser.isAdmin && (
-            <Link to="/dashboard?tab=posts">
-              <Sidebar.Item
-                active={tab === "posts"}
-                icon={HiDocumentText}
-                as="div"
-              >
-                Posts
-              </Sidebar.Item>
-            </Link>
-          )}
-          {currentUser.isAdmin && (
             <>
               <Link to="/dashboard?tab=users">
                 <Sidebar.Item
@@ -91,15 +80,6 @@ export default function DashSidebar() {
                   as="div"
                 >
                   Users
-                </Sidebar.Item>
-              </Link>
-              <Link to="/dashboard?tab=comments">
-                <Sidebar.Item
-                  active={tab === "comments"}
-                  icon={HiAnnotation}
-                  as="div"
-                >
-                  Comments
                 </Sidebar.Item>
               </Link>
             </>
